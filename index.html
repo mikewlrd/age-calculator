@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- HEAD: metadata & links -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age Calculator</title>
+
+  <!-- Connect CSS in /css -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Load JS in /js (defer = run after HTML is parsed) -->
+  <script src="script.js"></script>
+</head>
+<body>
+  <!-- PAGE WRAPPER -->
+  <main class="page">
+    <!-- CARD: the visible app area -->
+    <section class="card" role="region" aria-labelledby="title">
+      <h1 id="title">Age Calculator</h1>
+      <p class="subtitle">Enter your date of birth to calculate your exact age.</p>
+
+      <!-- FORM: date input + buttons -->
+      <form id="ageForm" class="form" novalidate>
+        <label for="dob" class="label">Date of Birth</label>
+        <!-- ‘max’ gets set by JS to today so future dates are blocked -->
+        <input type="date" id="dob" class="input" required aria-required="true" />
+
+        <div class="actions">
+          <button type="button" id="calcBtn" class="btn">Calculate Age</button>
+          <button type="reset" id="resetBtn" class="btn btn-ghost">Reset</button>
+        </div>
+
+        <!-- where errors will show -->
+        <p id="error" class="error" aria-live="polite" aria-atomic="true"></p>
+      </form>
+
+      <!-- RESULTS: live numbers + summary -->
+      <section id="result" class="result" aria-live="polite" aria-atomic="true">
+        <div class="grid">
+          <div class="cell">
+            <span id="years" class="big">--</span>
+            <small>Years</small>
+          </div>
+          <div class="cell">
+            <span id="months" class="big">--</span>
+            <small>Months</small>
+          </div>
+          <div class="cell">
+            <span id="days" class="big">--</span>
+            <small>Days</small>
+          </div>
+        </div>
+        <p id="summary" class="summary"></p>
+      </section>
+
+      <p class="hint">Tip: press <kbd>Enter</kbd> in the date field to calculate.</p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Built By Michael🎯</p>
+  </footer>
+</body>
+</html>
